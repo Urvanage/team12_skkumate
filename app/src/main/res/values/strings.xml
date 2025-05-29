@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Skkumate</string>
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string-array name="cleaning_frequencies">
+        <item>Daily</item>
+        <item>Once a week</item>
+        <item>Twice a month</item>
+        <item>Once a month</item>
+        <item>As needed</item>
+    </string-array>
+    <string-array name="interest_categories">
+        <item>All</item>
+        <item>Volunteer</item>
+        <item>Study</item>
+        <item>Sports</item>
+        <!-- …etc… -->
+    </string-array>
+
+    <string-array name="sort_options">
+        <item>Most Members</item>
+        <item>Most Likes</item>
+        <item>Newest</item>
+    </string-array>
+</resources>
