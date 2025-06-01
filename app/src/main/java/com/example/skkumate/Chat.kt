@@ -21,7 +21,8 @@ class ChatRoom(
     val name: String,
     val lastChat: String,
     val thumbnail: Int,
-    val lastTime: String
+    val lastTime: String,
+    val targetActivity: Class<out AppCompatActivity>
 ) {
 
 }
@@ -54,7 +55,7 @@ class ChatRoomAdapter(val data: ArrayList<ChatRoom>, val context: Context): Base
         imageViewThumbnail.setImageResource(data[p0].thumbnail)
 
         generatedView.setOnClickListener {
-            val intent = Intent(context, ChatScreen::class.java)
+            val intent = Intent(context, data[p0].targetActivity)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)  // 플래그 추가
             context.startActivity(intent)
         }
@@ -101,32 +102,13 @@ class Chat : AppCompatActivity() {
         }
 
         val items = ArrayList<ChatRoom>()
-        items.add(ChatRoom("Alice Kim", "Are you joining the study session?", R.drawable.profile_img2,  "9:22 PM" ))
-        items.add(ChatRoom("Bob Lee", "I'll be there in 30 mins.", R.drawable.profile_img1,  "8:24 PM" ))
-        items.add(ChatRoom("Cathy Choi", "Did you take MAP lecture? This week lab session is too hard. Can anybody give me the hint? I will be very happy if you help. If nobody help me, I will be very sad.", R.drawable.profile_img2,  "7:15 PM" ))
-        items.add(ChatRoom("Brother", "Hey.", R.drawable.profile_img1,  "4:21 PM" ))
-        items.add(ChatRoom("David Park", "See you tomorrow!", R.drawable.profile_img1,  "4:01 PM" ))
-        items.add(ChatRoom("Yogiyo", "How was the food?", R.drawable.profile_img1,  "3:24 PM" ))
-        items.add(ChatRoom("lorem ipsum", "dolor", R.drawable.profile_img1,  "2:22 PM" ))
+        items.add(ChatRoom("Alice Kim", "test 1", R.drawable.profile_img2,  "9:22 PM" , ChatScreen::class.java))
+        items.add(ChatRoom("Bob Lee", "test 2", R.drawable.profile_img1,  "8:24 PM", ChatScreen2::class.java))
+        items.add(ChatRoom("Cathy Choi", "test 3", R.drawable.profile_img2,  "7:15 PM", ChatScreen3::class.java ))
 
         val myAdapter = ChatRoomAdapter(items, this@Chat)
         val listView = findViewById<ListView>(R.id.listViewChatRoom)
         listView.adapter = myAdapter
 
-/*
-        val chatList = listOf(
-            ChatItem(R.drawable.profile1, "Alice Kim", "Hey! Are you free for lunch?", "10:30 AM"),
-            ChatItem(R.drawable.profile2, "Brian Lee", "Let's meet tomorrow.", "9:15 AM"),
-            ChatItem(R.drawable.profile3, "Cathy Park", "I'll send you the files.", "Yesterday"),
-            ChatItem(R.drawable.profile4, "David Choi", "Good morning!", "2 days ago"),
-            ChatItem(R.drawable.profile5, "Ella Jeong", "See you at the event.", "Last week")
-        )
-
-        // Set up RecyclerView
-        val chatRecyclerView = findViewById<RecyclerView>(R.id.chatRecyclerView)
-        chatRecyclerView.layoutManager = LinearLayoutManager(this)
-        chatRecyclerView.adapter = ChatAdapter(chatList)
-
- */
     }
 }

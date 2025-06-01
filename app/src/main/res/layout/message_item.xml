@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:id="@+id/msg_root"
     android:paddingVertical="8dp"
+    android:gravity="start"
     android:paddingHorizontal="16dp">
 
     <!-- Sender Profile Image (Optional) -->
@@ -22,6 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/message_bubble"
         android:padding="12dp"
+        android:gravity="start"
         android:elevation="2dp"
         android:orientation="vertical">
 
